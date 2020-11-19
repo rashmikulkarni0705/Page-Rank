@@ -1,0 +1,67 @@
+
+public class Calc {
+	
+	public double[][] cal(double M[][], double v[][],double en[][])
+	{
+		int Row=M.length;
+		int colM=M[0].length;
+		double v3[][]=new double[Row][1];
+		for(int i = 0; i < Row; i++)
+    	{
+            for(int j = 0; j < 1; j++)
+            {
+                for(int k = 0; k <colM; k++){
+                    v3[i][j] += M[i][k] * v[k][j];
+            }
+        }
+    	
+        for (i = 0; i < Row; i++) 
+        {
+            for (int j = 0; j <1; j++)
+                v3[i][j]=v3[i][j]+en[i][j];
+        }
+        
+    	}
+		return v3;
+	}
+
+	
+	
+	public boolean substract(double v1[][],double v[][])
+	{
+		boolean flag1=false;
+		int R=v1.length;
+		int col=v1[0].length;
+		double diff1[][]=new double[R][col];
+    	for (int  i = 0; i < R; i++) 
+	        {
+	            for (int j = 0; j <col; j++)
+	            {
+	                diff1[i][j]=v1[i][j] - v[i][j];
+	                /*if(diff1[i][j]==0.00)
+	                {
+	                	System.out.println(diff1[i][j]);
+	                	flag1=true;
+	                	
+	                }
+	                else
+	                {
+	                	flag1=false;
+	                	break;
+	                }
+	           */ }
+	        }
+    	
+    	if(diff1[0][0]==0.0 && diff1[1][0]==0.0 && diff1[2][0]==0)
+    	{
+    		flag1=true;
+    	}
+    	return flag1;
+       
+	}
+
+	
+	
+	
+	
+}
